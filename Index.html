@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Music-Lyric Video</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="video-container">
+      <video id="music-video" src="music-video.mp4" controls>
+      </video>
+    </div>
+    <div class="lyrics-container">
+      <div id="lyrics"></div>
+    </div>
+    <script>
+    // Get the video element
+    var musicVideo = document.getElementById("music-video");
+    // Get the lyrics container
+    var lyricsContainer = document.getElementById("lyrics");
+    // Add event listener for the timeupdate event
+    musicVideo.addEventListener("timeupdate", function() {
+      // Get the current time of the video
+      var currentTime = musicVideo.currentTime;
+      // Add the lyrics to the lyrics container
+      if (currentTime > 0 && currentTime < 5) {
+        lyricsContainer.innerHTML = "Verse 1:";
+      } else if (currentTime > 5 && currentTime < 10) {
+        lyricsContainer.innerHTML = "I'm on a roll, in control<br>Making moves, taking hold<br>I'm on a mission, with precision<br>Achieving goals with no derision";
+      } else if (currentTime > 10 && currentTime < 15) {
+        lyricsContainer.innerHTML = "I'm stacking cash, making it rain<br>Ain't no limit to my gain<br>I'm on top, can't be stopped<br>Making moves, non-stop";
+      } else if (currentTime > 15 && currentTime < 20) {
+        lyricsContainer.innerHTML = "I'm taking names, leaving a trail<br>Making waves, never to fail<br>I'm on fire, a true desire<br>Making moves, higher and higher";
+      }
+    });
+    </script>
+  </body>
+</html>
